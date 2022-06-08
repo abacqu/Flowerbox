@@ -1,24 +1,23 @@
 import React from 'react';
 import FlowerBody from './FlowerBody';
-import FlowerImage from './FlowerImage';
+import data from '../flowerData';
 
-const Flower = (props) => {
-   
- 
+const Flowers = () => {
     return (
-      <div className="flower" style={{ width: '18rem' }}>
-        <FlowerImage img={props.img}/>
-        
-        <FlowerBody
-           {...props}
-        //   title={props.title}
-        //   price={props.price}
-          // tags={props.tags}
-          
-          />
+      <div className="flower-container">
+        {data.map((item, idx) => {
+          return (
+            <FlowerBody
+              key={idx}
+              name={item.name}
+              price={item.price}
+              image={item.image}
+              tags={item.tags}
+            />
+          );
+        })}
       </div>
     );
   };
   
-  //export the components
-  export default Flower;
+  export default Flowers;

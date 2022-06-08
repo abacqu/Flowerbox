@@ -2,15 +2,22 @@ import React from 'react'
 
 
 
-const FlowerBody = ({title, price}) => {  
+const FlowerBody = (props) => {
     return (
-      <div className="flower-body">
-          <h5 className="flower-title">{title}</h5>
-          <p className="flower-price">{price}</p>
-          {/* <p className="flower-tags">{tags}</p> */}
+      <div className="card">
+        <img src={props.image} alt={props.name} className="card-image" />
+        <div className="card-body">
+          <p className="card-title">{props.name}</p>
+          <p className="card-price">${props.price}</p>
         </div>
+        <p className="tag-list">
+          {props.tags.map((tag, id) => {
+            return <span key={id}>{tag} </span>;
+          })}
+        </p>
+      </div>
     );
   };
   
-  //export the component
+  
   export default FlowerBody
