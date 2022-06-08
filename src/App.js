@@ -1,25 +1,42 @@
 import logo from './logo.svg';
 import './App.css';
+import Flower from './components/Flower'
+import flowerData from './flowerData'
+import Header from './components/Header'
+import Footer from './components/Footer'
 
-function App() {
+
+export default function App() {
+
+  // LOOP OVER THE ARRAY OF DATA AND CREATE A FLOWER FOR EACH OBJECT
+  // ARRAY METHODS: .forEach, .filter, .reduce
+  // .map( (element, indexPos))
+  const flowers = flowerData.map( (ele, index) => {
+    // return (
+      return
+      <Flower 
+        // img={ele.img}
+        // title={ele.title}
+        // price={ele.price}
+        // tags={ele.tags}
+        {...ele}
+        key={index}
+      />;
+    // )
+  });
+
+  // console.log('flowers are ', flowers.title)
+  
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {Header}
+    <section className="flowers">
+      {/* {flowers} */}
+      
+    </section>
+    {Footer}
     </div>
   );
 }
-
-export default App;
